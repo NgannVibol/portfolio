@@ -8,7 +8,8 @@ import {
   FaFigma,
   FaPython,
   FaPhp,
-  FaDatabase
+  FaDatabase,
+  FaNodeJs
 } from 'react-icons/fa';
 import { 
   SiTailwindcss, 
@@ -16,15 +17,18 @@ import {
   SiLaravel,
   SiVercel,
   SiRender,
-  SiMysql
+  SiMysql,
+  SiVuedotjs,
+  SiMongodb
 } from 'react-icons/si';
 import { VscCode } from 'react-icons/vsc';
-import { DiSqllite } from 'react-icons/di'; // Note: DiSqllite (double 'l')
+import { DiSqllite } from 'react-icons/di';
 import '../styles/global.css';
 
 const skillsList = [
   // Frontend
   { name: 'React', icon: <FaReact />, color: '#61DAFB', category: 'Frontend' },
+  { name: 'Vue.js', icon: <SiVuedotjs />, color: '#4FC08D', category: 'Frontend' },
   { name: 'JavaScript', icon: <FaJs />, color: '#F7DF1E', category: 'Frontend' },
   { name: 'HTML5', icon: <FaHtml5 />, color: '#E34F26', category: 'Frontend' },
   { name: 'CSS3', icon: <FaCss3Alt />, color: '#1572B6', category: 'Frontend' },
@@ -32,14 +36,16 @@ const skillsList = [
   { name: 'Redux', icon: <SiRedux />, color: '#764ABC', category: 'Frontend' },
   
   // Backend
+  { name: 'Node.js', icon: <FaNodeJs />, color: '#339933', category: 'Backend' },
   { name: 'PHP', icon: <FaPhp />, color: '#777BB4', category: 'Backend' },
   { name: 'Laravel', icon: <SiLaravel />, color: '#FF2D20', category: 'Backend' },
   { name: 'Python', icon: <FaPython />, color: '#3776AB', category: 'Backend' },
   
   // Database
+  { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248', category: 'Database' },
   { name: 'MySQL', icon: <SiMysql />, color: '#4479A1', category: 'Database' },
   { name: 'SQL', icon: <FaDatabase />, color: '#00758F', category: 'Database' },
-  { name: 'SQLite', icon: <DiSqllite />, color: '#003B57', category: 'Database' }, // Fixed: DiSqllite
+  { name: 'SQLite', icon: <DiSqllite />, color: '#003B57', category: 'Database' },
   
   // Tools & Platforms
   { name: 'VS Code', icon: <VscCode />, color: '#007ACC', category: 'Tools' },
@@ -75,8 +81,10 @@ const Skills = () => {
                     className="skill-card scroll-animate" 
                     style={{ transitionDelay: `${(catIndex * 0.1) + (index * 0.03)}s` }}
                   >
-                    <div style={{ color: skill.color, fontSize: '3rem' }}>{skill.icon}</div>
-                    <p>{skill.name}</p>
+                    <div className="skill-icon-wrapper" style={{ color: skill.color }}>
+                      {skill.icon}
+                    </div>
+                    <p className="skill-name">{skill.name}</p>
                   </div>
                 ))}
             </div>
